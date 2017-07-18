@@ -58,8 +58,18 @@ ActiveRecord::Schema.define(version: 20170718211630) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "booking_code"
+    t.integer  "train_id"
+    t.string   "seat_number"
+    t.integer  "user_id"
+    t.string   "customer_name"
+    t.string   "customer_phone"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["booking_code"], name: "index_reservations_on_booking_code"
+    t.index ["seat_number"], name: "index_reservations_on_seat_number"
+    t.index ["train_id"], name: "index_reservations_on_train_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "trains", force: :cascade do |t|
