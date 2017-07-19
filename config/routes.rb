@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api, :defaults => { :format => :json } do
     namespace :v1 do
+      get "/me" => "users#show", :as => :user
+      patch "/me" => "users#update", :as => :update_user
       get "/reservations" => "reservations#index", :as => :reservations
       get "/trains"  => "trains#index", :as => :trains
       get "/trains/:train_number" => "trains#show", :as => :train
