@@ -11,6 +11,6 @@ class Train < ApplicationRecord
   end.flatten
 
   def available_seats
-    return SEATS - self.reservations.plunk(:seat_number)
+    return SEATS - self.reservations.pluck(:seat_number)
   end
 end
